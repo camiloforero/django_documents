@@ -18,7 +18,7 @@ class ODTTemplate():
         oldenviron = os.environ['HOME']
         os.environ['HOME'] = "/tmp"
         returncode = subprocess.call(["libreoffice", "--headless", "--convert-to", "pdf", "--outdir", "/tmp", document.name])
-        print "Return code: %s " % str(returncode)
+        print "PDF generation return code: %s " % str(returncode)
         filename, file_extension = os.path.splitext(document.name)
         pdf = open(filename + ".pdf")
         os.environ['HOME'] = oldenviron
