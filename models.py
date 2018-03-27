@@ -10,7 +10,7 @@ class ODTTemplate(models.Model):
     """
         This represents a template, which should contain the actual file and a name so this can be easily retrieved in the API
     """
-    name = models.CharField("Nombre", max_length=16, unique=True, db_index=True, help_text="Un nombre único para este documento que sirva para identificarlo y diferenciarlo de los demás")
+    name = models.CharField("Nombre", max_length=32, unique=True, db_index=True, help_text="Un nombre único para este documento que sirva para identificarlo y diferenciarlo de los demás")
     file_name = models.SlugField(max_length=32, default="default", help_text="El nombre que va a tener el archivo cuando se guarde")
     generated_file_name = models.CharField("Nombre autogenerado", max_length=32, default="default", help_text="El nombre final que va a tener el documento cuando se envíe por correo o se suba a PODIO. Admite sintaxis de templates de Django para valores dinámicos")
     templateFile = models.FileField(upload_to=upload_prefix, help_text=u"Acá va el archivo de formato ODT que será utilizado para generar el PDF. Si quieres saber más revisa el booklet que se encuentra en esta dirección: LINK")
